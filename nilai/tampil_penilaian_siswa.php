@@ -47,7 +47,7 @@
               <td width="20%">
                   <a href="tambah_nilai.php?id=<?= $id ?>" class="btn btn-success btn-sm">Nilai</a>
                   <a href="tampil_nilai.php?id=<?= $id ?>" class="btn btn-primary btn-sm">Detail</a>
-                  <a href="" class="btn btn-warning btn-sm">Print</a>
+                  <a target="blank" href="print_nilai.php?id=<?= $id ?>" class="btn btn-warning btn-sm">Print</a>
                 </td>
           </tr>
         <?php } ?>
