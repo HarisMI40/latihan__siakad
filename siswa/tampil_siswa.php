@@ -42,6 +42,7 @@
             <tr>
                 <th>No</th>
                 <th>Nama</th>
+                <th>Kelas</th>
                 <th>Jurusan</th>
                 <th>#</th>
             </tr>
@@ -49,10 +50,15 @@
         <tbody>
             <?php
                 include "../koneksi.php";
-                $sql = "select * from siswa";
+                // $sql = "select * from siswa";
+
+                $sql = "select * from siswa INNER JOIN jurusan ON siswa.jurusan = jurusan.id";
                 if(isset($_GET['q'])){
                     $q = $_GET['q'];
                     $sql = "select * from siswa where nama LIKE '%$q%' or jurusan LIKE '%$q%'";
+                    $sql = "select * from siswa INNER JOIN jurusan ON siswa.jurusan = jurusan.id
+                    where siswa.nama LIKE '%$q%' or jurusan.jurusan LIKE '%$q%'
+                    ";
                 }
                 $no = 1;
                 $query = mysqli_query($db, $sql);
@@ -62,7 +68,8 @@
             <tr>
                 <td scope="row"><?= $no++ ?></td>
                 <td><?= $data["nama"] ?></td>
-                <td><?= $data["jurusan"] ?></td>
+                <td><?= $data["kelas"] ?></td>
+                <td><?= $data["jurusan"]." ". $data["rombel"] ?></td>
                 <td width="20%">
                     <a href="proses_hapus_siswa.php?id=<?= $data['id'] ?>" class="btn btn-danger btn-sm">Hapus</a>
                     <a href="edit_siswa.php?id=<?= $data['id'] ?>" class="btn btn-success btn-sm">Edit</a>
