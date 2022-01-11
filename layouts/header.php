@@ -40,10 +40,11 @@ if(!isset($_SESSION['email'])){
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="<?= $url ?>nilai/tampil_penilaian_siswa.php">Nilai</a>
         </li>
-        <li class="nav-item">
-          <a class="btn btn-danger btn-sm" aria-current="page" href="<?= $url ?>logout.php">Logout</a>
-        </li>
+       
       </ul>
+      <div>
+          <a class="btn btn-danger btn-sm" aria-current="page" href="<?= $url ?>logout.php">Logout</a>
+      </div>
     </div>
   </div>
 </nav>
