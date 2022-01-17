@@ -55,7 +55,6 @@
                 $sql = "select * from siswa INNER JOIN jurusan ON siswa.jurusan = jurusan.id";
                 if(isset($_GET['q'])){
                     $q = $_GET['q'];
-                    $sql = "select * from siswa where nama LIKE '%$q%' or jurusan LIKE '%$q%'";
                     $sql = "select * from siswa INNER JOIN jurusan ON siswa.jurusan = jurusan.id
                     where siswa.nama LIKE '%$q%' or jurusan.jurusan LIKE '%$q%'
                     ";
