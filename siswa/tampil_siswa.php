@@ -10,10 +10,10 @@
 
    <div class="d-flex justify-content-between mb-2">
     <a href="tambah_siswa.php" class="btn btn-success button-size">+ Tambah Data</a>
-    <form class="d-flex" action="">
+    <!-- <form class="d-flex" action="">
         <input class="form-control me-2" name="q" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success" type="submit">Search</button>
-    </form>
+    </form> -->
    </div>
  
   <div class="row">
@@ -37,7 +37,7 @@
     </div>
 
     <div class="col-md-10">
-        <table class="table table-bordered">
+        <table class="table table-bordered" id="table_id">
         <thead>
             <tr>
                 <th>No</th>
@@ -52,16 +52,18 @@
                 include "../koneksi.php";
                 // $sql = "select * from siswa";
 
-                $sql = "select * from siswa INNER JOIN jurusan ON siswa.jurusan = jurusan.id";
+                $sql = "select siswa.id,siswa.nama, jurusan.kelas,jurusan.jurusan,jurusan.rombel from siswa INNER JOIN jurusan ON siswa.jurusan = jurusan.id";
                 if(isset($_GET['q'])){
                     $q = $_GET['q'];
-                    $sql = "select * from siswa INNER JOIN jurusan ON siswa.jurusan = jurusan.id
+                    $sql = "select siswa.id,siswa.nama, jurusan.kelas,jurusan.jurusan,jurusan.rombel from siswa INNER JOIN jurusan ON siswa.jurusan = jurusan.id
                     where siswa.nama LIKE '%$q%' or jurusan.jurusan LIKE '%$q%'
                     ";
                 }
                 $no = 1;
                 $query = mysqli_query($db, $sql);
-                
+                // $data = mysqli_fetch_array($query);
+                // var_dump($data);
+                // die();
                 while($data = mysqli_fetch_array($query)){
             ?>
             <tr>

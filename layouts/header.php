@@ -22,6 +22,8 @@ if(!isset($_SESSION['email'])){
     <!-- Bootstrap core CSS -->
   <link href="<?= $url ?>asset/bs/css/bootstrap.min.css" rel="stylesheet">
 
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.4/css/jquery.dataTables.css">
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.11.4/b-2.2.2/b-html5-2.2.2/datatables.min.css"/>
 
   </head>
   <body>
